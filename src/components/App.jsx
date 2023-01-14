@@ -7,25 +7,14 @@ import { FriendList } from './FriendList/FriendList';
 import friends from '../data/friends.json';
 import { TransactionHistory } from './TransactionHistory/TransactionHistory';
 import transactions from '../data/transactions.json';
-import { Container, Header, Logo, Link, Icon, Nav } from './App.styled';
+import { SharedLayout } from './SharedLayout/SharedLayout';
 
 export const App = () => {
   return (
-    <Container>
-      <Header>
-        <Logo>
-          <Icon>&#9883;</Icon>React social network
-        </Logo>
-        <Nav>
-          <Link to="/">Profile</Link>
-          <Link to="/statistics">Upload stats</Link>
-          <Link to="/friends">Friend list</Link>
-          <Link to="/transactions">Transaction history</Link>
-        </Nav>
-      </Header>
-      <Routes>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
         <Route
-          path="/"
+          index
           element={
             <Profile
               username={user.username}
@@ -37,15 +26,15 @@ export const App = () => {
           }
         />
         <Route
-          path="/statistics"
+          path="statistics"
           element={<Statistics title="Upload stats" stats={data} />}
         />
-        <Route path="/friends" element={<FriendList friends={friends} />} />
+        <Route path="friends" element={<FriendList friends={friends} />} />
         <Route
-          path="/transactions"
+          path="transactions"
           element={<TransactionHistory items={transactions} />}
         />
-      </Routes>
-    </Container>
+      </Route>
+    </Routes>
   );
 };
