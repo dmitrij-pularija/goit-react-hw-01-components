@@ -4,30 +4,28 @@ import Css from './FriendList.module.css';
 export function FriendList({ friends }) {
   return (
     <ul className={Css.friends__list}>
-      {friends.map(({ avatar, name, isOnline, id }) =>
-        FriendListItem(avatar, name, isOnline, id)
-      )}
+      <FriendListItem friends={friends} />
     </ul>
   );
 }
 
-function FriendListItem(avatar, name, isOnline, id) {
-  return (
+const FriendListItem = ({ friends }) => {
+  return friends.map(({ avatar, name, isOnline, id }) => (
     <li className={Css.item} key={id}>
       <span className={isOnline ? Css.online : Css.offline}></span>
       <img className={Css.avatar} src={avatar} alt="User avatar" width="48" />
       <p className={Css.name}>{name}</p>
     </li>
-  );
-}
+  ));
+};
 
-FriendList.prototype = {
+FriendListItem.propTypes = {
   friends: PropTypes.arrayOf(
     PropTypes.shape({
-      avatar: PropTypes.string,
-      name: PropTypes.string,
-      isOnline: PropTypes.bool,
-      key: PropTypes.number,
+      avatar: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      isOnline: PropTypes.bool.isRequired,
+      id: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

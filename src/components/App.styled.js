@@ -12,10 +12,6 @@ export const Header = styled.header`
   align-items: center;
   justify-content: center;
   margin-top: 80px;
-
-  > nav {
-    display: flex;
-  }
 `;
 
 export const Logo = styled.p`
@@ -33,7 +29,7 @@ export const Icon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 900;
+  font-weight: 700;
   font-size: 64px;
   line-height: 0.7;
   margin-right: 5px;
@@ -42,6 +38,7 @@ export const Icon = styled.span`
 
 export const Link = styled(NavLink)`
   padding: 6px;
+  margin-bottom: -1px;
   border-radius: 5px 5px 0 0;
   text-decoration: none;
   color: black;
@@ -62,4 +59,5 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   gap: 2px;
+  border-bottom: 1px solid #aaabac;
 `;

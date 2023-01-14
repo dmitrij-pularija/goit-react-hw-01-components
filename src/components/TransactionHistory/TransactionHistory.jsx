@@ -12,25 +12,29 @@ export function TransactionHistory({ items }) {
         </tr>
       </thead>
       <tbody>
-        {items.map(({ id, type, amount, currency }) => (
-          <tr className={Css.table__row} key={id}>
-            <td>{type}</td>
-            <td>{amount}</td>
-            <td>{currency}</td>
-          </tr>
-        ))}
+        <TableItem items={items} />
       </tbody>
     </table>
   );
 }
 
-TransactionHistory.prototype = {
-  transactions: PropTypes.arrayOf(
+const TableItem = ({ items }) => {
+  return items.map(({ id, type, amount, currency }) => (
+    <tr className={Css.table__row} key={id}>
+      <td>{type}</td>
+      <td>{amount}</td>
+      <td>{currency}</td>
+    </tr>
+  ));
+};
+
+TableItem.propTypes = {
+  items: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
-      type: PropTypes.string,
-      amount: PropTypes.string,
-      currency: PropTypes.string,
+      id: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      amount: PropTypes.string.isRequired,
+      currency: PropTypes.string.isRequired,
     })
   ).isRequired,
 };
