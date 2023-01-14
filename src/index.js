@@ -7,7 +7,7 @@ import './index.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename='https://dmitrij-pularija.github.io/goit-react-hw-01-components'>
+    <BrowserRouter basename='/goit-react-hw-01-components'>
       <App />
     </BrowserRouter>
   </StrictMode>
