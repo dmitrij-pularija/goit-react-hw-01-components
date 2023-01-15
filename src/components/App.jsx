@@ -35,18 +35,6 @@ export const App = () => {
           element={<TransactionHistory items={transactions} />}
         />
       </Route>
-      <Route
-        path="*"
-        element={
-          <Profile
-            username={user.username}
-            tag={user.tag}
-            location={user.location}
-            avatar={user.avatar}
-            stats={user.stats}
-          />
-        }
-      />
     </Routes>
   );
 };
