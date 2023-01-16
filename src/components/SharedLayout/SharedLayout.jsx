@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
+import logo from '../../data/logo.svg';
 import {
   Container,
   Header,
@@ -7,12 +8,14 @@ import {
   Icon,
   Nav,
 } from './SharedLayout.styled';
-export const SharedLayout = () => {
+
+const SharedLayout = () => {
   return (
     <Container>
       <Header>
         <Logo>
-          <Icon>&#9883;</Icon>React social network
+          <Icon src={logo} />
+          React social network
         </Logo>
         <Nav>
           <Link to="/" end>
@@ -27,3 +30,5 @@ export const SharedLayout = () => {
     </Container>
   );
 };
+
+export default SharedLayout;

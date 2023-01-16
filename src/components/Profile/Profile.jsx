@@ -1,28 +1,28 @@
 import PropTypes from 'prop-types';
-import Css from './Profile.module.css';
+import css from './Profile.module.css';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div className={Css.profile}>
-      <div className={Css.description}>
-        <img src={avatar} alt="User avatar" className={Css.avatar} />
-        <p className={Css.name}>{username}</p>
-        <p className={Css.tag}>@{tag}</p>
-        <p className={Css.location}>{location}</p>
+    <div className={css.profile}>
+      <div className={css.description}>
+        <img src={avatar} alt="User avatar" className={css.avatar} />
+        <p className={css.name}>{username}</p>
+        <p className={css.tag}>@{tag}</p>
+        <p className={css.location}>{location}</p>
       </div>
 
-      <ul className={Css.stats}>
-        <li className={Css.stats__item}>
-          <span className={Css.label}>Followers</span>
-          <span className={Css.quantity}>{stats.followers}</span>
+      <ul className={css.stats}>
+        <li className={css.stats__item}>
+          <span className={css.label}>Followers</span>
+          <span className={css.quantity}>{stats.followers}</span>
         </li>
-        <li className={Css.stats__item}>
-          <span className={Css.label}>Views</span>
-          <span className={Css.quantity}>{stats.views}</span>
+        <li className={css.stats__item}>
+          <span className={css.label}>Views</span>
+          <span className={css.quantity}>{stats.views}</span>
         </li>
-        <li className={Css.stats__item}>
-          <span className={Css.label}>Likes</span>
-          <span className={Css.quantity}>{stats.likes}</span>
+        <li className={css.stats__item}>
+          <span className={css.label}>Likes</span>
+          <span className={css.quantity}>{stats.likes}</span>
         </li>
       </ul>
     </div>
@@ -40,3 +40,5 @@ Profile.propTypes = {
     likes: PropTypes.number.isRequired,
   }),
 };
+
+export default Profile;
